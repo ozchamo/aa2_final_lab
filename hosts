@@ -13,6 +13,3 @@ load_balancers
 app_servers
 database_servers
 
-[all:vars]
-GUID="{{ lookup('env', 'GUID') }}"
-guid="{{ lookup('env', 'GUID') }}"
