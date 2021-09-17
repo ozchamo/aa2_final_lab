@@ -1,6 +1,5 @@
 ---
 - name: Play to setup infrastructure on OpenStack 
-  hosts: localhost
   gather_facts: false
   collections:
     - gpte.openstack
