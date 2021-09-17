@@ -1,8 +1,10 @@
 ---
 - name: Play to setup infrastructure on OpenStack 
   hosts: localhost
-  connecton: local
+  connection: local
+  gather_facts: false
+
   roles:
     - role: create-instances
       vars:
-        guid: 3365
+        guid: "{{ lookup('ENV','GUID') }}"
