@@ -1,6 +1,7 @@
 ---
-- name: Play to setup infrastructure on OpenStack - tst
+- name: Play to setup infrastructure on OpenStack 
   hosts: localhost
+  connecton: local
   roles:
     - role: create-instances
       vars:
