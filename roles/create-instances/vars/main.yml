@@ -1,4 +1,5 @@
 ---
+guid: 3365
 instances:
   - name: frontend1
     keypair: {{ guid }}-keypair
