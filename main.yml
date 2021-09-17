@@ -3,3 +3,5 @@
   hosts: localhost
   roles:
     - role: create-instances
+      vars:
+        guid: 3365
