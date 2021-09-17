@@ -1,5 +1,6 @@
 ---
-guid: "{{ lookup('ENV','GUID') }}"
+guid: 3365
+#"{{ lookup('ENV','GUID') }}"
 
 instances:
   - name: frontend1
