@@ -1,7 +1,4 @@
 ---
-guid: 3365
-#"{{ lookup('ENV','GUID') }}"
-
 instances:
   - name: frontend1
     keypair: 3365-keypair
