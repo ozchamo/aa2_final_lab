@@ -2,6 +2,6 @@
 - name: Play to setup infrastructure on OpenStack - tst
   hosts: localhost
   roles:
-    - vars:
-        guid: 3365
     - role: create-instances
+      vars:
+        guid: 3365
