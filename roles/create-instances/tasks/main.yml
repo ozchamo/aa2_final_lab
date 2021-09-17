@@ -1,6 +1,5 @@
 ---
-- name: Create OpenStack Instances
-  hosts: localhost
+- name: Create OpenStack Instances for three-tier dev platform
   connection: local
   gather_facts: false
   vars:
