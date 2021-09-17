@@ -1,8 +1,6 @@
 ---
 - name: Play to setup infrastructure on OpenStack 
   hosts: control-node 
-  ansible.builtin.debug:
-    msg: System {{ inventory_hostname }} 
 
   roles:
     - role: create-instances
