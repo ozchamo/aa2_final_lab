@@ -1,6 +1,6 @@
 ---
 - name: Play to setup infrastructure on OpenStack 
-  hosts: control-node 
+  hosts: localhost
 
   roles:
     - role: create-instances
