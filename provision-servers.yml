@@ -1,14 +1,14 @@
 ---
 - name: print control hostname
-- hosts: localhost
+  hosts: localhost
   connection: local
   tasks:
     - debug: var=ansible_all_ipv4_addresses
     - debug: var=ansible_default_ipv4.address
   
 - name: Play to setup infrastructure on OpenStack 
-  connection: local
   hosts: localhost
+  connection: local
 
   roles:
     - role: create-instances
