@@ -8,6 +8,7 @@
   
 - name: Play to setup infrastructure on OpenStack 
   hosts: localhost
+  become: yes
   connection: local
 
   roles:
