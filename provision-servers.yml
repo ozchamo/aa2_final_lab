@@ -1,11 +1,10 @@
 ---
 - name: Play to setup infrastructure on OpenStack 
   hosts: control-node 
-  gather_facts: false
 
   roles:
     - role: create-instances
       vars:
         guid: "{{ lookup('ENV','GUID') }}"
-#    ansible.builtin.debug:
-#      msg: System {{ inventory_hostname }} 
+  ansible.builtin.debug:
+    msg: System {{ inventory_hostname }} 
