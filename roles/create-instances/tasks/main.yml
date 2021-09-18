@@ -3,7 +3,7 @@
   vars:
     guid: 3365
   openstack.cloud.server:
-    #cloud: "{{ guid }}-project"
+    cloud: "{{ guid }}-project"
     name: "{{ instance.name }}"
     image: "{{ instance.image }}"
     key_name: "{{ instance.keypair }}"

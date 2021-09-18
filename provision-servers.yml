@@ -13,4 +13,4 @@
   roles:
     - role: create-instances
       vars:
-        guid: "{{ lookup('ENV','GUID') }}"
+        guid: 3365
