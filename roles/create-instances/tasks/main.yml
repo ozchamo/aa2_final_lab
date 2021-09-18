@@ -4,7 +4,6 @@
     guid: 3365
   openstack.cloud.server:
     #cloud: "{{ guid }}-project"
-    cloud: openstack
     name: "{{ instance.name }}"
     image: "{{ instance.image }}"
     key_name: "{{ instance.keypair }}"
