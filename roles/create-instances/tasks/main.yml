@@ -1,7 +1,5 @@
 ---
 - name: Create Instance
-  vars:
-    guid: 3365
   openstack.cloud.server:
     name: "{{ instance.name }}"
     image: "{{ instance.image }}"
