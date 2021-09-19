@@ -10,33 +10,33 @@ instances:
       AnsibleGroup: osp_instances
       deployment_name: dev
 
-  - name: app1
-    keypair: 3365-keypair
-    image: rhel-8.3
-    flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
-    security_group: 3365-HostSG
-    internal_network: 3365-dev-network
-    metadata:
-      AnsibleGroup: osp_instances
-      deployment_name: dev
-
-  - name: app2
-    keypair: 3365-keypair
-    image: rhel-8.3
-    flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
-    security_group: 3365-HostSG
-    internal_network: 3365-dev-network
-    metadata:
-      AnsibleGroup: osp_instances
-      deployment_name: dev
-
-  - name: appdb1
-    keypair: 3365-keypair
-    image: rhel-8.3
-    flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
-    security_group: 3365-HostSG
-    internal_network: 3365-dev-network
-    metadata:
-      AnsibleGroup: osp_instances
-      deployment_name: dev
-
+#  - name: app1
+#    keypair: 3365-keypair
+#    image: rhel-8.3
+#    flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+#    security_group: 3365-HostSG
+#    internal_network: 3365-dev-network
+#    metadata:
+#      AnsibleGroup: osp_instances
+#      deployment_name: dev
+#
+#  - name: app2
+#    keypair: 3365-keypair
+#    image: rhel-8.3
+#    flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+#    security_group: 3365-HostSG
+#    internal_network: 3365-dev-network
+#    metadata:
+#      AnsibleGroup: osp_instances
+#      deployment_name: dev
+#
+#  - name: appdb1
+#    keypair: 3365-keypair
+#    image: rhel-8.3
+#    flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+#    security_group: 3365-HostSG
+#    internal_network: 3365-dev-network
+#    metadata:
+#      AnsibleGroup: osp_instances
+#      deployment_name: dev
+#
