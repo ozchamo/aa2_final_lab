@@ -14,4 +14,4 @@
     - role: create-instances
       vars:
         guid: 3365
-        cloud: {{ guid }}-project
+        cloud: "{{ guid }}-project"
