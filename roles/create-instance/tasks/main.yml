@@ -2,7 +2,7 @@
 - name: Create Instance
   openstack.cloud.server:
     name: "{{ instance.name }}"
-    image: "{{ instance.image }}"
+    image: "{{ multitierinfra.image }}"
     key_name: "{{ instance.keypair }}"
     flavor: "{{ instance.flavor }}"
     security_groups: "{{ instance.security_group }}"
