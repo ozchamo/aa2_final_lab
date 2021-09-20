@@ -3,7 +3,7 @@
   openstack.cloud.server:
     name: "{{ instance.name }}"
     image: "{{ instance.image }}"
-    key_name: "{{ instance.keypair }}"
+    #key_name: "{{ instance.keypair }}"
     flavor: "{{ instance.flavor }}"
     security_groups: "{{ instance.security_group }}"
     delete_fip: yes
