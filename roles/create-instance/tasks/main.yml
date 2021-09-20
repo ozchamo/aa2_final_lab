@@ -10,7 +10,7 @@
     wait: no
     nics:
       - net-name: "{{ multitierinfra.internal_network }}"
-    meta: "AnsibleGroup={{multitierinfra.AnsibleGroup}},deployment_name={{instance.deployment_name}}"
+    meta: "AnsibleGroup={{instance.AnsibleGroup}},deployment_name={{instance.metadata.deployment_name}}"
   loop: "{{ instances }}"
   loop_control:
     loop_var: instance
