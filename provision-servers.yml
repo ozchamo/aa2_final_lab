@@ -11,7 +11,16 @@
   connection: local
 
   roles:
-    - role: create-instances
+    - role: create-instance
       vars:
         guid: 3365
-        cloud: "{{ guid }}-project"
+        instances:
+          - name: frontend1
+            image: rhel-8.3
+            flavor: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+            keypair: "{{ guid }}-keypair"
+            security_group: "{{ guid }}-HostSG"
+            internal_network: "{{ guid }}-dev-network"
+            metadata:
+              AnsibleGroup: osp_instances_lab
+              deployment_name: dev

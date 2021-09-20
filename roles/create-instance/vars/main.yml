@@ -1,0 +1,35 @@
+guid: 3365
+#ssh_public_key_path: "~/.ssh/{{ guid }}key.pub"
+#all_ssh_authorized_keys: "{{ lookup('file', ssh_public_key_path)}}"
+#
+
+# Preconfigured resources for OpenStack
+key_name: "{{ guid }}-keypair"
+image: rhel-8.3
+
+
+
+instances:
+  - name: node1
+    image: rhel-8.3
+    flavor:
+      osp: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+    network: "{{ guid }}-dev-network"
+    tags:
+      - key: "AnsibleGroup"
+        value: "apps"
+    security_groups:
+      - "{{ guid }}-DefaultSG"
+      - "{{ guid }}-HostSG"
+
+  - name: node2
+    image: rhel-8.3
+    flavor:
+      osp: GLOBAL-CPU_4_Memory_8192_Disk_30_flavor
+    network: "{{ guid }}-dev-network"
+    tags:
+      - key: "AnsibleGroup"
+        value: "apps"
+    security_groups:
+      - "{{ guid }}-DefaultSG"
+      - "{{ guid }}-HostSG"
