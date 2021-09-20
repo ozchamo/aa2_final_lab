@@ -3,14 +3,14 @@
   openstack.cloud.server:
     name: "{{ instance.name }}"
     image: "{{ multitierinfra.image }}"
-    key_name: "{{ instance.keypair }}"
-    flavor: "{{ instance.flavor }}"
-    security_groups: "{{ instance.security_group }}"
+    key_name: "{{ multitierinfra.keypair }}"
+    flavor: "{{ multitierinfra.flavor }}"
+    security_groups: "{{ multitierinfra.security_group }}"
     delete_fip: yes
     wait: no
     nics:
-      - net-name: "{{ instance.internal_network }}"
-    meta: "AnsibleGroup={{metadata.AnsibleGroup}},deployment_name={{metadata.deployment_name}}"
+      - net-name: "{{ multitierinfra.internal_network }}"
+    meta: "AnsibleGroup={{multitierinfra.AnsibleGroup}},deployment_name={{instance.deployment_name}}"
   loop: "{{ instances }}"
   loop_control:
     loop_var: instance

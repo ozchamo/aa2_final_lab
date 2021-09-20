@@ -6,17 +6,17 @@
   roles:
     - role: create-instance
       vars:
-        guid: 3365
         instances:
           - name: frontend1
-            flavor: "GLOBAL-CPU_4_Memory_8192_Disk_30_flavor"
-            keypair: "{{ guid }}-keypair"
-            security_group: "{{ guid }}-HostSG"
-            internal_network: "{{ guid }}-dev-network"
             metadata:
               AnsibleGroup: osp_instances_lab
               deployment_name: dev
   vars:
+    guid: 3365
     multitierinfra:
       image: rhel-8.3
+      flavor: "GLOBAL-CPU_4_Memory_8192_Disk_30_flavor"
+      keypair: "{{ guid }}-keypair"
+      security_group: "{{ guid }}-HostSG"
+      internal_network: "{{ guid }}-dev-network"
 
