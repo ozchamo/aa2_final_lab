@@ -7,7 +7,7 @@
   add_host:
     host: "{{ instance.name }}"
     group: "{{ instance.metadata.AnsibleGroup }}"
-  when: instance.metadata.AnsibleGroup == {{ AnsibleGroup }}
+  when: instance.metadata.AnsibleGroup == "{{ AnsibleGroup }}"
   loop: "{{ instances.openstack_servers }}"
   loop_control:
     loop_var: instance
