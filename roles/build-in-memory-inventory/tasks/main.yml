@@ -7,7 +7,7 @@
   add_host:
     host: "{{ instance.name }}"
     group: "{{ instance.group}}"
-  when: instance.meta.deployment_name == instance_settings.deployment_name
+  when: instance.properties.deployment_name == instance_settings.deployment_name
   loop: "{{ os_instances.openstack_servers }}"
   loop_control:
     loop_var: instance
