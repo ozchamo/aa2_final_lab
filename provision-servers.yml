@@ -11,6 +11,7 @@
       keypair: "{{ guid }}-keypair"
       security_group: "{{ guid }}-HostSG"
       internal_network: "{{ guid }}-dev-network"
+      AnsibleGroup: mitzicom_multitier_app_servers
 
   roles:
     - role: create-instance
@@ -19,23 +20,17 @@
           - name: frontend1
             metadata:
               deployment_name: frontend
-              AnsibleGroup: mitzicom_multitier_app_servers
-#          - name: app1
-#            metadata:
-#              deployment_name: app1
-#              AnsibleGroup: mitzicom_multitier_app_servers
-#          - name: app2
-#            metadata:
-#              deployment_name: app2
-#              AnsibleGroup: mitzicom_multitier_app_servers
-#          - name: appdb1
-#            metadata:
-#              deployment_name: appdb1
-#              AnsibleGroup: mitzicom_multitier_app_servers
+          - name: app1
+            metadata:
+              deployment_name: app1
+          - name: app2
+            metadata:
+              deployment_name: app2
+          - name: appdb1
+            metadata:
+              deployment_name: appdb1
 
     - role: build-in-memory-inventory
-      vars: 
-        AnsibleGroup: mitzicom_multitier_app_servers
         
 
 #    - role: configure-instance
