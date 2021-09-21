@@ -11,7 +11,7 @@
     nics:
       - net-name: "{{ instance_settings.internal_network }}"
     meta: "AnsibleGroup={{instance.group}}"
-    properties: "DeployName={{instance_settings.deployment_name}}"
+    meta: "DeployName={{instance_settings.deployment_name}}"
   loop: "{{ instances }}"
   loop_control:
     loop_var: instance
