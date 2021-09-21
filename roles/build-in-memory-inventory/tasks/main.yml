@@ -1,13 +1,13 @@
 ---
-- name: Collection instance info
+- name: Collect instance info
   os_server_info:
   register: instances
 
-- name: Build In-Memory inventory
+- name: Build in-Memory inventory
   add_host:
     host: "{{ instance.name }}"
-    group: "{{ instance.metadata.AnsibleGroup }}"
-  when: instance.metadata.AnsibleGroup == "{{ AnsibleGroup }}"
+    group: "{{ multitierinfra.AnsibleGroup }}"
+  when: instance.metadata.AnsibleGroup == "{{ multitierinfra.AnsibleGroup }}"
   loop: "{{ instances.openstack_servers }}"
   loop_control:
     loop_var: instance
