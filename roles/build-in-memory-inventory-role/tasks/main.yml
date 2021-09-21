@@ -3,14 +3,17 @@
   os_server_info:
   register: os_instances
 
+- name: print host list
+  debug: var=os_instances
+
 - name: Build in-Memory inventory
   add_host:
-    host: "{{ instance.name }}"
-    group: "{{ instance.metadata.AnsibleGroup}}"
+    host: "{{ os_instance.name }}"
+    group: "{{ os_instance.metadata.AnsibleGroup}}"
   when: instance.metadata.deployment_name ==  instance_settings.deployment_name
   loop: "{{ os_instances.openstack_servers }}"
   loop_control:
-    loop_var: instance
+    loop_var: os_instance
 
 - name: Print current hosts
   debug: var=groups

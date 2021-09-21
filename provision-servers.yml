@@ -14,7 +14,7 @@
       deployment_name: "dev"
 
   roles:
-    - role: create-instance
+    - role: create-instance-role
       vars:
         instances:
           - name: frontend1
@@ -26,9 +26,9 @@
           #- name: appdb1
           #  group: database_servers
 
-    - role: build-in-memory-inventory
+    - role: build-in-memory-inventory-role
         
 
-#    - role: configure-instance
+#    - role: configure-instance-role
 
 
