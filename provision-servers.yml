@@ -3,26 +3,6 @@
   hosts: localhost
   connection: local
 
-  roles:
-    - role: create-instance
-      vars:
-        instances:
-          - name: frontend1
-            metadata:
-              deployment_name: frontend
-              AnsibleGroup: mitzicom_multitier_frontends
-          - name: app1
-            metadata:
-              deployment_name: app1
-              AnsibleGroup: mitzicom_multitier_apps
-          - name: app2
-            metadata:
-              deployment_name: app2
-              AnsibleGroup: mitzicom_multitier_apps
-          - name: appdb1
-            metadata:
-              deployment_name: appdb1
-              AnsibleGroup: mitzicom_multitier_appdbs
   vars:
     guid: 3365
     multitierinfra:
@@ -31,5 +11,31 @@
       keypair: "{{ guid }}-keypair"
       security_group: "{{ guid }}-HostSG"
       internal_network: "{{ guid }}-dev-network"
+
+  roles:
+    - role: create-instance
+      vars:
+        instances:
+          - name: frontend1
+            metadata:
+              deployment_name: frontend
+              AnsibleGroup: mitzicom_multitier_app
+          - name: app1
+            metadata:
+              deployment_name: app1
+              AnsibleGroup: mitzicom_multitier_app
+          - name: app2
+            metadata:
+              deployment_name: app2
+              AnsibleGroup: mitzicom_multitier_app
+          - name: appdb1
+            metadata:
+              deployment_name: appdb1
+              AnsibleGroup: mitzicom_multitier_app
+
+    - role: build-in-memory-inventory
+      vars:
+        internal_domain: example.com
+    - role: configure-instance
 
 

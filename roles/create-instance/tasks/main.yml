@@ -1,5 +1,5 @@
 ---
-- name: Create Instance
+- name: Create new OpenStack virtual instance
   openstack.cloud.server:
     name: "{{ instance.name }}"
     image: "{{ multitierinfra.image }}"
@@ -14,3 +14,4 @@
   loop: "{{ instances }}"
   loop_control:
     loop_var: instance
+
