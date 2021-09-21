@@ -6,7 +6,7 @@
 - name: Build in-Memory inventory
   add_host:
     host: "{{ instance.name }}"
-    group: "{{ instance.group}}"
+    group: "{{ instance.metadata.AnsibleGroup}}"
   when: instance.metadata.deployment_name == instance_settings.deployment_name
   loop: "{{ os_instances.openstack_servers }}"
   loop_control:
