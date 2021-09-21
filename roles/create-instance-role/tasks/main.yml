@@ -10,7 +10,7 @@
     wait: no
     nics:
       - net-name: "{{ instance_settings.internal_network }}"
-    meta: "deployment_name={{instance_settings.deployment_name}},AnsibleGroup={{instance.group}}"
+    meta: "DeployName={{instance_settings.deployment_name}},AnsibleGroup={{instance.group}}"
     #meta: "AnsibleGroup={{instance.group}},deployment_name={{instance_settings.deployment_name}}"
   loop: "{{ instances }}"
   loop_control:
