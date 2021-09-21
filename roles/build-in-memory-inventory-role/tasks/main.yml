@@ -10,7 +10,7 @@
   add_host:
     host: "{{ os_instance.name }}"
     group: "{{ os_instance.metadata.AnsibleGroup}}"
-  #when: os_instance.metadata.DeployName ==  instance_settings.deployment_name
+  when: os_instance.metadata.DeployName ==  instance_settings.deployment_name
   loop: "{{ os_instances.openstack_servers }}"
   loop_control:
     loop_var: os_instance
