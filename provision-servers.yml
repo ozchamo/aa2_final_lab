@@ -5,7 +5,7 @@
 
   vars:
     guid: 3365
-    instancesettings:
+    instance_settings:
       image: rhel-8.3
       flavor: "GLOBAL-CPU_4_Memory_8192_Disk_30_flavor"
       keypair: "{{ guid }}-keypair"
