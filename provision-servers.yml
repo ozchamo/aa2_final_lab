@@ -20,22 +20,22 @@
             metadata:
               deployment_name: frontend
               AnsibleGroup: mitzicom_multitier_app_servers
-          - name: app1
-            metadata:
-              deployment_name: app1
-              AnsibleGroup: mitzicom_multitier_app_servers
-          - name: app2
-            metadata:
-              deployment_name: app2
-              AnsibleGroup: mitzicom_multitier_app_servers
-          - name: appdb1
-            metadata:
-              deployment_name: appdb1
-              AnsibleGroup: mitzicom_multitier_app_servers
+#          - name: app1
+#            metadata:
+#              deployment_name: app1
+#              AnsibleGroup: mitzicom_multitier_app_servers
+#          - name: app2
+#            metadata:
+#              deployment_name: app2
+#              AnsibleGroup: mitzicom_multitier_app_servers
+#          - name: appdb1
+#            metadata:
+#              deployment_name: appdb1
+#              AnsibleGroup: mitzicom_multitier_app_servers
 
     - role: build-in-memory-inventory
       vars: 
-        AnsiblGroup: mitzicom_multitier_app_servers
+        AnsibleGroup: mitzicom_multitier_app_servers
         
 
 #    - role: configure-instance
