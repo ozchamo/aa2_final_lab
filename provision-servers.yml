@@ -11,7 +11,7 @@
       keypair: "{{ guid }}-keypair"
       security_group: "{{ guid }}-HostSG"
       internal_network: "{{ guid }}-dev-network"
-      deployment_name: dev
+      deployment_name: "dev"
 
   roles:
     - role: create-instance
