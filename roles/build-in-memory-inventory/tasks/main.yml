@@ -14,5 +14,4 @@
     loop_var: instance
 
 - name: Print current hosts
-  tasks:
-    - debug: var=groups
+  debug: var=groups
