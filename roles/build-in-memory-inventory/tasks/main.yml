@@ -14,8 +14,5 @@
     loop_var: instance
 
 - name: Print current hosts
-  hosts: localhost
-  connection: local
-  gather_facts: false
   tasks:
     - debug: var=groups
