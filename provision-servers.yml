@@ -18,7 +18,7 @@
       vars:
         instances:
           - name: frontend1
-            group: load_balancers,dev
+            group: load_balancers
          # - name: app1
          #  group: app_servers,dev
          #- name: app2
