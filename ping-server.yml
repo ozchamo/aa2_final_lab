@@ -1,0 +1,8 @@
+
+---
+- name: Create infrastructure for multi-tier application in OpenStack
+  hosts: frontend1
+  connection: local
+  ping:
+
+

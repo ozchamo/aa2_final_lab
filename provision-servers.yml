@@ -28,6 +28,10 @@
 
     - role: build-in-memory-inventory-role
         
+  tasks:
+    - name: check if host is there
+      ping:
+        name: frontend1
 
 #    - role: configure-instance-role
 
