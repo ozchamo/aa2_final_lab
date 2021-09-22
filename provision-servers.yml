@@ -29,7 +29,7 @@
     - role: build-in-memory-inventory-role
         
 - name: check if host is there
-  hosts: frontend1
+  hosts: all
   tasks:
     - ping:
 
