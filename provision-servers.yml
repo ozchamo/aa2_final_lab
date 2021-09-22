@@ -31,7 +31,7 @@
 - name: check if host is there
   hosts: frontend1
   tasks:
-    ping:
+    - ping:
 
 #    - role: configure-instance-role
 
