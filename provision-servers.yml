@@ -28,27 +28,3 @@
 
     - role: build-in-memory-inventory-role
         
-- name: Update DNS IP
-  lineinfile:
-    state: present
-    path: /etc/sysconfig/network-scripts/ifcfg-eth0
-    line: "{{ item }}"
-  loop:
-    - PEERDNS=no
-    - DNS1=192.168.50.242
-  register: network_update
-
-- name: restart network manager
-  service:
-    name: NetworkManager
-    state: restarted
-  when: network_update.changed | bool
-
-- name: check if host is there
-  hosts: all
-  tasks:
-    - ping:
-
-#    - role: configure-instance-role
-
-

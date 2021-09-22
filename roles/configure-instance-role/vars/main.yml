@@ -1,2 +1,5 @@
 ---
-# vars file for configure-instance
+satellite_url: satellite.example.com
+satellite_activationkey: gpte-labs-rhel8
+satellite_org: prod
+
