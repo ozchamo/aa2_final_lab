@@ -18,13 +18,13 @@
       vars:
         instances:
           - name: frontend1
-            group: load_balancers
-          - name: app1
-            group: app_servers
-          - name: app2
-            group: app_servers
-          - name: appdb1
-            group: database_servers
+            group: load_balancers,dev
+         # - name: app1
+         #  group: app_servers,dev
+         #- name: app2
+         #   group: app_servers,dev
+         # - name: appdb1
+         #   group: database_servers
 
     - role: build-in-memory-inventory-role
         
