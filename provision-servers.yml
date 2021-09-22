@@ -20,9 +20,9 @@
           - name: frontend1
             group: load_balancers
           - name: app1
-            group: app_servers,dev
+            group: app_servers
           - name: app2
-            group: app_servers,dev
+            group: app_servers
           - name: appdb1
             group: database_servers
 
