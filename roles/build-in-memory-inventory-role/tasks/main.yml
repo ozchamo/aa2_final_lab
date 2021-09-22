@@ -10,6 +10,7 @@
   add_host:
     host: "{{ os_instance.name }}"
     group: "{{ os_instance.metadata.AnsibleGroup}}"
+    ansible_host: "{{ private_v4 }}"
   #when: os_instance.metadata.DeployName ==  instance_settings.deployment_name
   loop: "{{ os_instances.openstack_servers }}"
   loop_control:
