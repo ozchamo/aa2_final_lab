@@ -1,5 +1,5 @@
 ---
-- name: in memory inventory
+- name: Build in-memory inventory for MTA
   hosts: localhost
   connection: local
   gather_facts: false
