@@ -1,6 +1,7 @@
 ---
 - name: Collect instance info
   os_server_info:
+    cloud: "{{ guid }}-project"
   register: instances
 
 - name: print host list
@@ -11,7 +12,7 @@
     host: "{{ instance.name }}"
     group: "{{ instance.metadata.AnsibleGroup}}"
     ansible_host: "{{ instance.private_v4 }}"
-  when: instance.metadata.deployment_name is defined and instance.metadata.deployment_name == deployment_name
+  when: instance.metadata.deployment_name is defined and instance.metadata.deployment_name == "MTA"
   loop: "{{ instances.openstack_servers }}"
   loop_control:
     loop_var: instance

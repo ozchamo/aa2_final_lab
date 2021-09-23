@@ -12,17 +12,16 @@
         cloud: "{{ guid }}-project"
       register: instances
 
-    - name: Build In-Memory inventory
+    - name: Build in-Memory inventory
       add_host:
-        host: "{{ instance.name }}.{{ internal_domain }}"
-        group: "{{ instance.metadata.AnsibleGroup }}"
+        host: "{{ instance.name }}"
+        group: "{{ instance.metadata.AnsibleGroup}}"
         ansible_host: "{{ instance.private_v4 }}"
-        ssh_private_key_file: "/home/devops/.ssh/{{ guid }}key.pem"
-      #when: instance.metadata.deployment_name is defined and instance.metadata.deployment_name == "dev"
-      #when: instance.metadata.AnsibleGroup == "app_servers"
+      when: instance.metadata.deployment_name is defined and instance.metadata.deployment_name == "MTA"
       loop: "{{ instances.openstack_servers }}"
       loop_control:
         loop_var: instance
+
 
 - name: Print current hosts
   hosts: localhost
