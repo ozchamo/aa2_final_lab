@@ -3,7 +3,12 @@
   hosts: frontend1,app1,app2,appdb1
   become: yes
 
+  vars: 
+    guid: 3365
+    deployment_name: MTA
+
   roles:
+    - role: build-in-memory-inventory-role
     - role: configure-instance-role
         
 

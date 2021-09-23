@@ -1,17 +1,17 @@
 ---
-- name: Create infrastructure for multi-tier application in OpenStack
+- name: Create infrastructure for multi-tier application (MTA) in OpenStack
   hosts: localhost
   connection: local
 
   vars:
     guid: 3365
+    deployment_name: "MTA"
     instance_settings:
       image: rhel-8.3
       flavor: "GLOBAL-CPU_4_Memory_8192_Disk_30_flavor"
       keypair: "{{ guid }}-keypair"
       security_group: "{{ guid }}-HostSG"
       internal_network: "{{ guid }}-dev-network"
-      deployment_name: "dev"
 
   roles:
     - role: create-instance-role
@@ -26,5 +26,3 @@
           - name: appdb1
             group: database_servers
 
-    - role: build-in-memory-inventory-role
-        

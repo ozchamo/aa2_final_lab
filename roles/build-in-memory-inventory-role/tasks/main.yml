@@ -1,20 +1,20 @@
 ---
 - name: Collect instance info
   os_server_info:
-  register: os_instances
+  register: instances
 
 - name: print host list
-  debug: var=os_instances
+  debug: var=instances
 
 - name: Build in-Memory inventory
   add_host:
-    host: "{{ os_instance.name }}"
-    group: "{{ os_instance.metadata.AnsibleGroup}}"
-    ansible_host: "{{ os_instance.private_v4 }}"
-  #when: os_instance.metadata.DeployName ==  instance_settings.deployment_name
-  loop: "{{ os_instances.openstack_servers }}"
+    host: "{{ instance.name }}"
+    group: "{{ instance.metadata.AnsibleGroup}}"
+    ansible_host: "{{ instance.private_v4 }}"
+  when: instance.metadata.deployment_name is defined and instance.metadata.deployment_name == deployment_name
+  loop: "{{ instances.openstack_servers }}"
   loop_control:
-    loop_var: os_instance
+    loop_var: instance
 
 - name: Print current hosts
   debug: var=groups

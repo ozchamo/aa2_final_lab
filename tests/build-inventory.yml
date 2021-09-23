@@ -1,0 +1,32 @@
+---
+- name: In-Memory Inventory
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    guid: 3365
+    internal_domain: "example.com"
+  tasks:
+    - name: Collection instance info
+      os_server_info:
+        cloud: "{{ guid }}-project"
+      register: instances
+
+    - name: Build In-Memory inventory
+      add_host:
+        host: "{{ instance.name }}.{{ internal_domain }}"
+        group: "{{ instance.metadata.AnsibleGroup }}"
+        ansible_host: "{{ instance.private_v4 }}"
+        ssh_private_key_file: "/home/devops/.ssh/{{ guid }}key.pem"
+      #when: instance.metadata.deployment_name is defined and instance.metadata.deployment_name == "dev"
+      #when: instance.metadata.AnsibleGroup == "app_servers"
+      loop: "{{ instances.openstack_servers }}"
+      loop_control:
+        loop_var: instance
+
+- name: Print current hosts
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - debug: var=groups
