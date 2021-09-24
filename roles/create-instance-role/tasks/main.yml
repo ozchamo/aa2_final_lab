@@ -7,7 +7,7 @@
     flavor: "{{ instance_settings.flavor }}"
     security_groups: "{{ instance_settings.security_group }}"
     delete_fip: yes
-    wait: no
+    wait: yes
     nics:
       - net-name: "{{ instance_settings.internal_network }}"
     meta: "AnsibleGroup={{instance.group}},deployment_name={{deployment_name}}"
