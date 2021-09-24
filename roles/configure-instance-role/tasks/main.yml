@@ -14,7 +14,7 @@
     line: "{{ item }}"
   loop:
     - PEERDNS=no
-    - DNS1={{DNS-address}}
+    - DNS1="{{DNSaddress}}"
   register: network_update
 
 - name: restart network manager
