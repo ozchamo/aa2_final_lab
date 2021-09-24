@@ -12,7 +12,7 @@
 
 - name: Configure infrastructure for multi-tier application 
   hosts: frontend1,app1,app2,appdb1
-  #become: yes
+  become: yes
 
   vars: 
     guid: 3365
