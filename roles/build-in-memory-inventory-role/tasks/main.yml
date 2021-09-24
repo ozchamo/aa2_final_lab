@@ -1,7 +1,7 @@
 ---
 - name: Collect instance info
   os_server_info:
-    #cloud: "{{ guid }}-project"
+    # No cloud needs to be passed as this is controlled by credentials in tower
   register: instances
 
 - name: print host list
