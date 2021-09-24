@@ -19,6 +19,7 @@
   register: network_update
 
 - name: restart network manager
+  become: yes
   service:
     name: NetworkManager
     state: restarted
@@ -32,6 +33,7 @@
     disable_gpg_check: true
 
 - name: register system and attach subs
+  become: yes
   redhat_subscription:
     state: present
     activationkey: "{{ satellite_activationkey }}"
@@ -39,6 +41,7 @@
     auto_attach: true
 
 - name: Install firewalld
+  become: yes
   yum:
     name: firewalld
     state: latest
