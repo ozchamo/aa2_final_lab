@@ -3,6 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: false
+
   vars: 
     guid: 3365
     deployment_name: MTA
@@ -12,7 +13,6 @@
 
 - name: Configure infrastructure for multi-tier application 
   hosts: frontend1,app1,app2,appdb1
-  become: yes
 
   vars: 
     guid: 3365
