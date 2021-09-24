@@ -24,6 +24,7 @@
   when: network_update.changed | bool
 
 - name: install katello-ca-consumer package
+  become: yes
   yum:
     name: http://satellite.example.com/pub/katello-ca-consumer-latest.noarch.rpm
     state: present
