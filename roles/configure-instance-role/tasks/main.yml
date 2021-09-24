@@ -8,6 +8,7 @@
   connection: local
 
 - name: Update DNS IP
+  become: yes
   lineinfile:
     state: present
     path: /etc/sysconfig/network-scripts/ifcfg-eth0
