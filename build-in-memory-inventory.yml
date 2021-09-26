@@ -1,0 +1,12 @@
+---
+- name: in memory inventory
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  vars:
+    guid: 3365
+    deployment_name: MTA
+
+  roles:
+    - role: build-in-memory-inventory-role
+

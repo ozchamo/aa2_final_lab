@@ -1,0 +1,32 @@
+---
+# vars file for deploy-postgress-role
+
+#postgres_rhel7_repo: "https://download.postgresql.org/pub/repos/yum/12/redhat/rhel-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm"
+#baseos_rhel8_repo: https://cdn.redhat.com/content/dist/rhel8/$releasever/x86_64/baseos/os/rhel-8-for-x86_64-baseos-rpms
+
+baseos_rhel8_repo: https://satellite.example.com/pulp/repos/prod/Library/content/dist/rhel8/8/x86_64/baseos/os #/rhel-8-for-x86_64-baseos-rpms
+
+postgres_rhel8_repo: https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+postgres_packages:
+  - postgresql12
+  - postgresql12-server
+  - postgresql12-contrib
+  - postgresql12-libs
+postgres_library: python3-psycopg2
+postgres_data_dir: /var/lib/pgsql/12/data
+postgres_bin_path: /usr/pgsql-12/bin
+postgres_service: postgresql-12.service
+postgres_port: 5432
+postgres_user: postgres
+postgres_users:
+  - name: flask
+    password: redhat
+    database: flask_db
+    state: present
+    priv: ALL
+postgres_databases:
+  - name: flask_db
+    owner: flask
+  - name: books_store
+    owner: flask
