@@ -1,8 +1,8 @@
 ---
-- name: in memory inventory
+- name: Build in-memory inventory
   hosts: localhost
   connection: local
-  gather_facts: false
+  gather_facts: no
   vars:
     guid: 3365
     deployment_name: MTA

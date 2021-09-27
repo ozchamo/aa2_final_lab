@@ -3,6 +3,7 @@
 
 - name: Configure infrastructure for multi-tier application 
   hosts: frontend1,app1,app2,appdb1
+  gather_facts: no
 
   vars: 
     guid: 3365

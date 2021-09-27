@@ -2,6 +2,7 @@
 - name: Create infrastructure for multi-tier application (MTA) in OpenStack
   hosts: localhost
   connection: local
+  gather_facts: no
 
   vars:
     guid: 3365
