@@ -1,7 +1,7 @@
 ---
 - import_playbook: build-in-memory-inventory.yml
 
-- name: Configure infrastructure for multi-tier application 
+- name: Configure infrastructure for multi-tier application (MTA)
   hosts: frontend1,app1,app2,appdb1
   gather_facts: no
 
