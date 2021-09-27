@@ -6,20 +6,21 @@
   community.general.timezone:
     name: Australia/Sydney
 
-#- name: Enable RHEL 8 Repository
-#  yum_repository: 
-#    name: rhel-8-baseos
-#    description: RHEL 8 baseos 
-#    baseurl:  "{{ baseos_rhel8_repo }}"
-#    gpgcheck: no
-
 - name: Disable stream for postgreslq
   command: dnf -qy module disable postgresql
   args:
     warn: false
+    
+- name: Copy supporting packages (non-Satellite) for local installation
+  copy:
+    src: "{{ role_path }}/files/libicu-60.3-2.el8_1.x86_64.rpm"
+    dest: /tmp
+    mode: 0644
 
 - name: Install libicu dependency
-  command: dnf -qy install libicu
+  # unfortunately the satellite server has a circular link to this file, but the file itself
+  # is not available. We can download from the web, or take advantage from the role 'files'
+  command: dnf -qy install "/tmp/libicu-60.3-2.el8_1.x86_64.rpm"
   args:
     warn: false
 
@@ -29,7 +30,6 @@
     state: present
     disable_gpg_check: True
   loop:
-    - "{{ baseos_rhel8_repo }}"
     - "{{ postgres_rhel8_repo }}"
     - "{{ postgres_packages }}"
     - "{{ postgres_library }}"
@@ -43,7 +43,7 @@
 
 - when: not r_postgres_init_dir_state.stat.exists
   name: Run Postgres initdb to initialize if postgres not initialized
-  command: "{{ postgres_bin_path }}/postgresql-setup initdb"
+  command: "{{ postgres_bin_path }}/postgresql-12-setup initdb"
   notify: restart_postgres
 
 - name: Setup Postgres for remote password auth
@@ -66,6 +66,7 @@
     enabled: "{{ postgres_service_enabled | default(true) }}"
 
 - name: Configure Postgres resources, user, database etc
+  become_user: "{{ postgres_user }}"
   block:
 
     - name: Setup Postgres database(s)
@@ -76,7 +77,7 @@
       loop_control:
         loop_var: __database
 
-    - name: Create Postgres user#(s)
+    - name: Create Postgres user(s)
       postgresql_user:
         name: "{{ __user.name }}"
         password: "{{ __user.password | default(omit) }}"
@@ -91,6 +92,5 @@
       no_log: "{{ postgres_user_no_log_state | default(false) }}"
 
 
-  become_user: "{{ postgres_user }}"
 
 
