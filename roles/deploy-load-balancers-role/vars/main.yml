@@ -1,0 +1,6 @@
+---
+# vars file for deploy-load-balancers-role
+#
+
+load_balancer_packages:
+  - haproxy
