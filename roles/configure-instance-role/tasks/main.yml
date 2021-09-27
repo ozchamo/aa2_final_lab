@@ -1,4 +1,9 @@
 ---
+- name: wait_for_connection # This one works
+    wait_for_connection:
+      delay: 10
+      timeout: 180
+
 - name: Gather network facts
   setup:
     gather_subset:
