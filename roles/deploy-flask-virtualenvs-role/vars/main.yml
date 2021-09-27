@@ -29,10 +29,10 @@ app_satellite_packages:
 # Due to issues with Satellite, required pacakes have been made avaiable in the role
 app_yum_packages:
   - perl-Thread-Queue-3.13-1.el8.noarch.rpm
+  - m4-1.4.18-7.el8.x86_64.rpm
+  - libtool-2.4.6-25.el8.x86_64.rpm
   - autoconf-2.69-27.el8.noarch.rpm
   - automake-1.16.1-7.el8.noarch.rpm
-  - libtool-2.4.6-25.el8.x86_64.rpm
-  - m4-1.4.18-7.el8.x86_64.rpm
 
 pip_dependencies:
   - virtualenv
