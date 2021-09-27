@@ -1,0 +1,14 @@
+- import_playbook: build-in-memory-inventory.yml
+
+- name: Deploy, configure, and populate flask repo and virtualenv
+  hosts: app_servers
+  become: yes
+  gather_facts: no
+
+  tags:
+    - application_servers
+    - flask
+
+  roles:
+    - role: deploy-flask-virtualenvs-role
+
