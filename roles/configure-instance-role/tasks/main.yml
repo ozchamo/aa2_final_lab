@@ -1,8 +1,8 @@
 ---
 - name: wait_for_connection # This one works
-    wait_for_connection:
-      delay: 10
-      timeout: 180
+  wait_for_connection:
+    delay: 10
+    timeout: 300
 
 - name: Gather network facts
   setup:
