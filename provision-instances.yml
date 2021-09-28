@@ -13,7 +13,7 @@
       internal_network: "{{ guid }}-dev-network"
 
   vars_files:
-    - /vars/global_vars.yml  # guid is kept here
+    - vars/global_vars.yml  # guid is kept here
 
   roles:
     - role: create-instance-role
