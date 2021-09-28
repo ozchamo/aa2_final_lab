@@ -12,7 +12,7 @@
       security_group: "{{ guid }}-HostSG"
       internal_network: "{{ guid }}-dev-network"
 
-  var_files:
+  vars_files:
     - /vars/global_vars.yml  # guid is kept here
 
   roles:
