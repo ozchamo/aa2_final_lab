@@ -1,9 +1,0 @@
-- name: Verify OpenStack Instances
-  hosts: all
-  tasks:
-    - name: Verify connectivity
-      ping:
-      register: output
-
-    - debug:
-        msg: "{{ output }}"
