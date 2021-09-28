@@ -27,4 +27,6 @@
             group: app_servers
           - name: appdb1
             group: database_servers
+      async: 180
+      poll: 15
 
