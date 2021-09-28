@@ -30,9 +30,9 @@ app_satellite_packages:
 app_yum_packages:
   - perl-Thread-Queue-3.13-1.el8.noarch.rpm
   - m4-1.4.18-7.el8.x86_64.rpm
+  - autoconf-2.69-27.el8.noarch.rpm
   - automake-1.16.1-7.el8.noarch.rpm
   - libtool-2.4.6-25.el8.x86_64.rpm
-  - autoconf-2.69-27.el8.noarch.rpm
 
 pip_dependencies:
   - virtualenv
