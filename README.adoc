@@ -9,6 +9,8 @@ necessary minimal smoke tests
 Re-read the below and imagine that it has been much improved by Red Hat Consulting :)
 
 THIS A MUCH IMPROVED AND MODULAR VERSION OF THIS OLD THING:
+
+==== OLD README.ADOC FOLLOWS!
 New monolithic Ansible playbook, `main.yml` and supporting files  which is designed for teaching and training in refacoring and
 the use of roles, collections etc.
 Designed to replace the function of the old link:https://github.com/tonykay/bad-ansible[`bad-ansible`] with a different
