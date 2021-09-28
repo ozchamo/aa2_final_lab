@@ -14,5 +14,4 @@
   loop: "{{ instances }}"
   loop_control:
     loop_var: instance
-  async: 180
 
