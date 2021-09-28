@@ -1,7 +1,7 @@
 - import_playbook: build-in-memory-inventory.yml
 
 - name: End to end smoke tests
-  hosts: frontend1
+  hosts: load_balancers
   become: no
   gather_facts: no
   tags:
@@ -13,14 +13,20 @@
       - name: app2
 
   tasks:
+
     - name: Check app server for correct response from load-balancers
       uri:
-        url: "http://{{ appserver.name }}:8080/ping"
+        url: "http://{{ item.name }}:8080/ping"
         return_content: yes
-      until: '"alive" in result.content'
       retries: 3
       delay: 1
-      register: result
-      loop: "{{ appservers }}"
-      loop_control:
-        loop_var: appserver
+      with_items:
+        -  "{{ appservers }}"
+
+    - name: Check app server for response through load balancers
+      uri:
+        url: "http://localhost/ping"
+        return_content: yes
+      retries: 3
+      delay: 1
+
