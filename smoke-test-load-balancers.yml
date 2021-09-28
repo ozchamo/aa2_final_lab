@@ -1,0 +1,19 @@
+- import_playbook: build-in-memory-inventory.yml
+
+- name: End to end smoke tests
+  hosts: localhost
+  connection: local
+  become: no
+  gather_facts: no
+  tags:
+    - smoketest  
+  tasks:
+    - name: Check webserver for correct response
+      uri:
+        url: "http://app1.example.com:8080/ping"
+        return_content: yes
+      until: '"alive" in result.content'
+      retries: 10
+      delay: 1
+      register: result
+      delegate_to: localhost
