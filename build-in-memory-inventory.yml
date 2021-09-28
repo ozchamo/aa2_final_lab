@@ -3,9 +3,9 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  vars:
-    guid: 3365
-    deployment_name: MTA
+
+  vars_files:
+    - /vars/global_vars.yml
 
   roles:
     - role: build-in-memory-inventory-role

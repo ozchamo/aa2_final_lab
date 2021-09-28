@@ -5,10 +5,6 @@
   hosts: frontend1,app1,app2,appdb1
   gather_facts: no
 
-  vars: 
-    guid: 3365
-    deployment_name: MTA
-
   roles:
     - role: configure-instance-role
          
