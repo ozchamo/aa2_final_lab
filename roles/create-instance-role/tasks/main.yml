@@ -14,4 +14,6 @@
   loop: "{{ instances }}"
   loop_control:
     loop_var: instance
+  async: 180
+  poll: 15
 
